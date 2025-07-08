@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="渡邊竜麒のシステムエンジニア(SE)ポートフォリオサイト。Python、Rust、デザインスキルを組み合わせた唯一無二のSEを目指しています。">
+    <meta name="keywords" content="システムエンジニア,SE,Python,Rust,デザイン,ポートフォリオ">
+    <title>渡邊竜麒 - システムエンジニア(SE)ポートフォリオ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- スキップリンク -->
+    <a href="#main-content" class="skip-link">メインコンテンツにスキップ</a>
+    
+    <!-- ヘッダー -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>渡邊竜麒 my portfolio</h1>
+                <span class="title">システムエンジニア(SE)</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main id="main-content">
+        <!-- ヒーローセクション -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">渡邊竜麒</h1>
+                <p class="hero-subtitle">システムエンジニア(SE)を目指す<br>デザイン系大学3年生</p>
+                <div class="hero-badges">
+                    <span class="badge">基本情報技術者</span>
+                    <span class="badge">応用情報技術者受験予定</span>
+                    <span class="badge">行政書士試験学習中</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About セクション -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>好奇心旺盛な性格から発想力が試されるデザインと情報技術に興味を持ち、情報技術・法律知識については独学で学問に励んできました。デザインの発想力と情報技術、法律知識を組み合わせ唯一無二のシステムエンジニア(SE)を目指すことを決意しています。</p>
+                        <p>現在はRust言語、応用情報技術者資格、行政書士試験に取り組み学習を続けています。基本情報技術者資格を取得し、2024年10月の応用情報技術者試験に向けて学習を進めています。</p>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <h4>学歴・資格</h4>
+                                    <p>東北工業大学 デザイン工学部 産業デザイン学科3年<br>
+                                    基本情報技術者資格取得済み</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-code"></i>
+                                <div>
+                                    <h4>技術スタック</h4>
+                                    <p>Python（自然言語処理・簡単なゲーム開発）<br>
+                                    Rust（システムプログラミング・パフォーマンス重視）<br>
+                                    JavaScript（Web開発）</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-palette"></i>
+                                <div>
+                                    <h4>デザインスキル</h4>
+                                    <p>Illustrator・Photoshop（グラフィックデザイン）<br>
+                                    Studio（ノーコードWeb開発）<br>
+                                    プロダクトデザイン・ユーザーリサーチ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>3年</h3>
+                            <p>東北工業大学 デザイン工学部 産業デザイン学科在学中</p>
+                        </div>
+                        <div class="stat">
+                            <h3>情報工学・法律・デザイン</h3>
+                            <p>情報工学・法律を独学・デザインを大学で学ぶ</p>
+                        </div>
+                        <div class="stat">
+                            <h3>1</h3>
+                            <p>取得資格：基本情報技術者</p>
+                        </div>
+                        <div class="stat">
+                            <h3>7</h3>
+                            <p>プロジェクト</p>
+                        </div>
+                        <div class="stat">
+                            <h3>3</h3>
+                            <p>学習分野：デザイン情報工学・法律</p>
+                        </div>
+                        <div class="stat">
+                            <h3>SE</h3>
+                            <p>目標職種</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects セクション -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <!-- Python AI チャットボット -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python 人工無能チャットボットプロトタイプ</h3>
+                        <p>Pythonでにチャットボットの製作を続けています。基本的な自然言語処理と対話システムの実装。</p>
+                        <div class="project-image">
+                            <img src="images/人工無能チャットbot1.png" alt="Python AI チャットボットの開発画面。自然言語処理を使用した対話システムの実装例" class="project-screenshot">
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">自然言語処理</span>
+                            <span class="tech-tag">チャットボット</span>
+                        </div>
+                        <a href="projects/python-ai-chatbot.html" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            詳細を見る
+                        </a>
+                    </div>
+
+                    <!-- Python hit&blow ゲーム -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Python hit&blow ゲーム</h3>
+                        <p>Pythonでhit&blowゲームを作成。GUIの作成も含めて、フロントエンドとバックエンドの処理を分離した実装。</p>
+                        <div class="project-image">
+                            <img src="images/hitblow1.png" alt="Python hit&blow ゲーム画面" class="project-screenshot">
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">GUI</span>
+                            <span class="tech-tag">ゲーム開発</span>
+                        </div>
+                        <a href="projects/python-hitblow-game.html" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            詳細を見る
+                        </a>
+                    </div>
+
+                    <!-- Rust パスワード管理アプリ -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Rust パスワード管理アプリケーションプロトタイプ</h3>
+                        <p>Rustの強力な所有権システム、ライフタイムによりヒープの解放忘れなどをコンパイル時に防止する。Rustの独特な性能を活かしたアプリケーション。</p>
+                        <div class="project-image">
+                            <img src="images/passwordtracker1.png" alt="Rust チャットボットコード画面" class="project-screenshot">
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Rust</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">性能比較</span>
+                        </div>
+                        <a href="projects/rust-password-manager.html" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            詳細を見る
+                        </a>
+                    </div>
+
+                    <!-- Studio Webサイト開発 -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Studio によるWebサイト開発</h3>
+                        <p>Studioによるノーコード開発でプログラミング支援Webサービスのプロトタイプを作成。HTML/CSSでの実装も行いました。</p>
+                        <div class="project-image">
+                            <img src="images/studio1.png" alt="Studio Webサイト開発画面" class="project-screenshot">
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Studio</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">Web開発</span>
+                        </div>
+                        <a href="projects/studio-website.html" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            詳細を見る
+                        </a>
+                    </div>
+
+                    <!-- FLATIX プロダクト企画 -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>三つ折り吸着ファイル:FLATIX</h3>
+                        <p>実際のユーザーの悩みをインタビューし、それを元にFLATIXのプロトタイプを作成。高い収納力と可視スペースで仕事の効率アップを実現。</p>
+                        <div class="project-image">
+                            <img src="images/filatix1.JPG" alt="FLATIX プロダクト画像" class="project-screenshot">
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">プロダクト企画</span>
+                            <span class="tech-tag">ユーザーリサーチ</span>
+                            <span class="tech-tag">デザイン思考</span>
+                        </div>
+                        <a href="projects/flatix-product.html" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            詳細を見る
+                        </a>
+                    </div>
+
+                    <!-- 卒業制作フライヤー -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>卒業制作フライヤーのプロトタイプ</h3>
+                        <p>所属する大学の卒業制作展示を案内するフライヤーを模して作成。Illustratorを使用したグラフィックデザイン。</p>
+                        <div class="project-image">
+                            <img src="images/卒業制作フライヤー.png" alt="卒業制作フライヤー" class="project-screenshot">
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Illustrator</span>
+                            <span class="tech-tag">グラフィックデザイン</span>
+                            <span class="tech-tag">フライヤー</span>
+                        </div>
+                        <a href="projects/graduation-flyer.html" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            詳細を見る
+                        </a>
+                    </div>
+
+                    <!-- OAC_ANA 広告 -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-ad"></i>
+                        </div>
+                        <h3>OAC_ANA 広告</h3>
+                        <p>学生クリエイティブアワードへ出展するために広告を作成。PhotoshopとIllustratorを組み合わせたデザイン制作。</p>
+                        <div class="project-image project-image-row">
+                            <img src="images/ANA1.png" alt="OAC_ANA 広告" class="project-screenshot">
+                            <img src="images/ANA2.png" alt="OAC_ANA 広告" class="project-screenshot">
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Photoshop</span>
+                            <span class="tech-tag">Illustrator</span>
+                            <span class="tech-tag">広告デザイン</span>
+                        </div>
+                        <a href="projects/oac-ana-ad.html" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            詳細を見る
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills セクション -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>プログラミング言語</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Rust</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">JavaScript</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 35%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>技術・ツール</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Qtcreator</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 35%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Studio One</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">HTML/CSS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>デザインツール</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Illustrator</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Photoshop</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Studio</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact セクション -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>お気軽にお問い合わせください</h3>
+                        <p>プロジェクトへ興味を持ったらお気軽にご連絡ください。まだまだ初心者ですが、一緒に学びながら成長していきたいと考えています。</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>ryumushi@icloud.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>宮城県仙台市</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">お名前 *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">メッセージ *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            送信する
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 渡邊竜麒. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
