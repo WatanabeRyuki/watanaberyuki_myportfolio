@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Python HSIEハラスメント検知システム実装の詳細ページ。自然言語処理と対話システムの実装について">
+    <title>Python HSIEハラスメント検知システム - 渡邊竜麒</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 80px;
+        }
+        
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .project-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e1e1e1;
+            margin-bottom: 1rem;
+        }
+        
+        .project-subtitle {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #61dafb;
+        }
+        
+        .project-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .project-description {
+            background: #2d2d2d;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(97, 218, 251, 0.2);
+        }
+        
+        .project-description h3 {
+            color: #e1e1e1;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .project-description p {
+            color: #a0a0a0;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .project-features {
+            background: #2d2d2d;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(97, 218, 251, 0.2);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(97, 218, 251, 0.1);
+            color: #a0a0a0;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            color: #61dafb;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #e1e1e1;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #7c3aed;
+        }
+        
+        @media (max-width: 768px) {
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .project-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+        
+        .project-features h3 {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-bg"></canvas>
+    <!-- ヘッダー -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>渡邊竜麒</h1>
+                <span class="title">システムエンジニア(SE)</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="project-detail">
+        <div class="container">
+            <a href="../index.html#projects" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                プロジェクト一覧に戻る
+            </a>
+            
+            <div class="project-header">
+                <h1 class="project-title">Python HSIE<br>（Harassment Structure Index Evidence）<br>ハラスメント検知システム</h1>
+                <p class="project-subtitle">音声・言語・行動構造を統合し、ハラスメント構造を数値化し、法的リスクまで提示できるマルチモーダルAI</p>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-brain"></i>
+                        <span>マルチモーダルAI</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-comments"></i>
+                        <span>ハラスメント発言検知</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-content">
+                <div class="project-description">
+                    <h3>プロジェクト概要</h3>
+                    <p>HSIEは、音声・言語・会話構造という複数の観点から人間のコミュニケーション行動を分析し、ハラスメント行動を数値化・可視化するAI研究プロジェクトです。
+                        音声の抑揚や声量といった非言語情報、発話内容、会話の支配構造を統合して「ハラスメント構造指数（HSI）」を算出し、さらに判例データと照合することで法的リスクや証拠価値まで提示します。
+                        
+                        従来のテキストベース判定では捉えきれなかった、日本語特有の婉曲的表現や沈黙・話し方の圧といった要素を対象とし、被害者の「証拠がない」という課題と、加害者の「無自覚な再発」という構造的問題の両面にアプローチすることを目的としています。</p>
+                    
+                    <h3>開発の背景</h3>
+                    <h3>①社会的背景</h3>
+                    <p>職場や教育現場におけるハラスメントは年々深刻化している一方で、<br>
+
+                        ・被害者の約40%が誰にも相談できていない<br>
+                        
+                        ・相談を断念する理由の約半数が「証拠がない」<br>
+                        
+                        ・加害者の約6割が無自覚のまま行為を繰り返している<br>
+                        
+                        といった構造的課題が存在します。</p>
+                    
+                    <h3>②技術的課題背景</h3>
+                    <p>既存のハラスメント検知システムは主にテキスト分析に依存しており、<br>
+
+                        ・声の強さ・抑揚・沈黙<br>
+                        
+                        ・発話の遮断や一方的な会話支配<br>
+                        
+                        ・日本語特有の遠回しな人格否定<br>
+                        
+                        といった 「音声・行動に宿る圧力」 を十分に扱えていません。
+                        
+                        そこで私は、
+                        「ハラスメントを感情や単語ではなく、行動の構造として捉え直す」
+                        という視点から本プロジェクトを立ち上げました。</p>
+
+                    <h3>技術的な挑戦</h3>
+                    <h3>①マルチモーダル統合設計</h3>
+                    <p> HSIEでは以下の3つのモデルを独立して設計し、最終的に統合しています。<br>
+                        <p>
+                        音声攻撃性モデル（A）<br>
+                        音量、ピッチ変動、緊張度などから話し方の圧を定量化<br>
+                        <p>
+                        会話構造モデル（S）<br>
+                        発話占有率、割り込み、否定連鎖などから支配構造を分析<br>
+                        言語攻撃性モデル（L）<br>
+                        日本語特有の婉曲的侮辱や命令表現をNLPで解析<br>
+                        <p>
+                        これらを単純に足し合わせるのではなく、
+                        過大評価を防ぐための重み付け・非線形統合によって
+                        HSI（0〜100）という行動構造指数を設計しました。</p>
+
+                    <h3>②法律NLPとの接続（HSIE）</h3>
+                    <p>算出されたHSIを入力として、<br>
+
+                        ・判例文書のembedding化<br>
+                        
+                        ・類似度によるTop-K判例抽出<br>
+                        
+                        ・証拠の連続性・信頼性を考慮したEvidence Score算出<br>
+                        
+                        を行い、行動構造 × 法的観点を統合したHSIEとして最終出力します。
+                        
+                        これは単なる分類AIではなく、
+                        「AIがどのように判断したかを人が説明できる」ことを重視した設計です。</p>
+
+                    <h3>学んだこと</h3>
+                    <p>・単一モデルよりも システム全体の設計思想が精度を左右すること<br>
+
+                        ・マルチモーダルAIでは「統合ロジック」が最も難しく、最も価値が出ること<br>
+                        
+                        ・精度指標（F1、相関係数、Cohen’s κなど）は
+                        タスクの性質から逆算して設計すべきであること<br>
+
+                        ・社会課題は「感情」ではなく「構造」に分解することで技術に落とせる<br>
+                        
+                        ・AIは結論を出す存在ではなく、人の判断を支援する道具として設計すべき<br>
+                        
+                        ・法律・心理・技術といった異分野を横断することで、初めて解ける問題がある<br>
+                    </p>
+                    <div class="project-image">
+                        <img src="../images/HSIEデモUI.png" alt="Python AI チャットボットの開発画面。自然言語処理を使用した対話システムの実装例" class="project-screenshot">
+                    </div>
+                    <div><a href="https://github.com/WatanabeRyuki/harassment_law_system_1.0">HSIE実装Githubサイトへ</a><br>
+                    <a href="https://watanaberyuki.github.io/harassment_law_chatbot_UI-UX_prototype/">デモフローサイトへ</a></div>
+                </div>
+                
+                <div class="project-features">
+                    <h3>完了したタスク</h3>
+                    <ul class="feature-list">
+                        <li>プロジェクト全体の企画立案およびコンセプト設計</li>
+                        <li>企画書の作成（社会課題・目的・将来像の整理）</li>
+                        <li>要件定義書の作成（業務要件・機能要件・非機能要件・技術要件）</li>
+                        <li>基本設計書の作成</li>
+                        <li>詳細設計書の作成</li>
+                        <li>エントリーポイント層 詳細設計書の作成</li>
+                        <li>エントリーポイント層のPython実装</li>
+                        <li>現在進行中・データ前処理層（音声・テキスト・メタ情報）の詳細設計</li>
+
+                    <h3>主な機能</h3>
+                    <ul class="feature-list">
+                        <li>基音声入力の取得およびメタデータ管理（時刻・話者情報など）</li>
+                        <li>音声認識（ASR）による音声 → テキスト変換</li>
+                    </ul>
+                    <h3>・音声攻撃性分析</h3>
+                    <ul class="feature-list"></ul>
+                        <li>音量、ピッチ変動、緊張度などの音響特徴量抽出</li>
+                        <li>話し方の圧を数値化</li>
+                    </ul>
+                    
+                    <h3>・会話構造分析</h3>
+                    <ul class="feature-list">
+                        <li>発話占有率</li>
+                        <li>割り込み検知</li>
+                        <li>否定連鎖の分析</li>
+                    </ul>
+                    
+                    <h3>言語攻撃性分析</h3>
+                    <ul class="feature-list">
+                        <li>侮辱・人格否定表現の検知</li>
+                        <li>命令・強制表現の分析</li>
+                        <li>日本語特有の婉曲表現への対応</li>
+                    </ul>
+
+
+                    <h3>使用技術</h3>
+                    <ul class="feature-list">
+                        <li>Python</li>
+                        <li>FastAPI</li>
+                        <li>Whisper base</li>
+                        <li>librosa / torchaudio</li>
+                        <li>日本語BERT系モデル</li>
+                        <li>Sentence-BERT（判例embedding）</li>
+                        <li>ルールベース × 機械学習のハイブリッド設計</li>
+                        <li>マルチモーダルスコア統合アルゴリズム</li>
+                        <li>要件定義・基本設計・詳細設計ベースの段階的開発</li>
+                        <li>疎結合を前提としたレイヤード構成</li>
+                    </ul>
+                    
+                    <h3>今後の改善点</h3>
+                    <ul class="feature-list">
+                        <li>データ前処理層の実装完了および最適化</li>
+                        <li>音声解析のリアルタイム性向上</li>
+                        <li>モデル評価の強化</li>
+                        <li>HSI統合ロジックの改良</li>
+                        <li>判例NLPの精度向上</li>
+                        <li>UI/UXの改善</li>
+                        <li>教育・予防用途への応用検討</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 渡邊竜麒. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+    // フェードイン
+    document.body.style.opacity = '0';
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            document.body.style.transition = 'opacity 0.7s';
+            document.body.style.opacity = '1';
+        }, 50);
+    });
+    // パーティクルアニメーション
+    const canvas = document.getElementById('particles-bg');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    function createParticles() {
+        particles = [];
+        for (let i = 0; i < 60; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 2 + 1,
+                dx: (Math.random() - 0.5) * 0.7,
+                dy: (Math.random() - 0.5) * 0.7,
+                alpha: Math.random() * 0.5 + 0.3
+            });
+        }
+    }
+    createParticles();
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of particles) {
+            ctx.save();
+            ctx.globalAlpha = p.alpha;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = '#61dafb';
+            ctx.shadowColor = '#7c3aed';
+            ctx.shadowBlur = 8;
+            ctx.fill();
+            ctx.restore();
+            p.x += p.dx;
+            p.y += p.dy;
+            if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        }
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+    </script>
+    <style>
+    #particles-bg {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+        background: linear-gradient(135deg, #61dafb 0%, #7c3aed 100%);
+        opacity: 0.7;
+    }
+    body, .container, main, .header, .footer {
+        position: relative;
+        z-index: 1;
+    }
+    </style>
+</body>
+</html> 
