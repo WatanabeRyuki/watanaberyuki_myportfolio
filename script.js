@@ -60,20 +60,37 @@ function initializeContactForm() {
         submitBtn.disabled = true;
         
         try {
-            // 実際の送信処理（ここではコンソールに出力）
-            console.log('送信データ:', {
-                name,
-                email,
-                message
+            // FormSubmitを使用したメール送信
+            const formAction = contactForm.getAttribute('action');
+            
+            if (!formAction || !formAction.includes('formsubmit.co')) {
+                throw new Error('フォームのaction属性が正しく設定されていません。');
+            }
+            
+            // FormSubmitに送信（FormDataを使用）
+            const formDataToSend = new FormData();
+            formDataToSend.append('name', name);
+            formDataToSend.append('email', email);
+            formDataToSend.append('message', message);
+            formDataToSend.append('_subject', `ポートフォリオサイトからのお問い合わせ: ${name}様`);
+            formDataToSend.append('_captcha', 'false');
+            formDataToSend.append('_template', 'box');
+            formDataToSend.append('_next', window.location.href); // 送信後のリダイレクト先
+            
+            const response = await fetch(formAction, {
+                method: 'POST',
+                body: formDataToSend
             });
             
-            // 送信成功のシミュレーション
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            showNotification('お問い合わせを送信しました。ありがとうございます！', 'success');
-            contactForm.reset();
+            if (response.ok) {
+                showNotification('お問い合わせを送信しました。ありがとうございます！', 'success');
+                contactForm.reset();
+            } else {
+                throw new Error('送信に失敗しました。');
+            }
             
         } catch (error) {
+            console.error('送信エラー:', error);
             showNotification('送信に失敗しました。しばらく時間をおいて再度お試しください。', 'error');
         } finally {
             // ボタンの状態を元に戻す
