@@ -60,14 +60,8 @@ function initializeContactForm() {
         submitBtn.disabled = true;
         
         try {
-            // FormSubmitを使用したメール送信
-            const formAction = contactForm.getAttribute('action');
-            
-            if (!formAction || !formAction.includes('formsubmit.co')) {
-                throw new Error('フォームのaction属性が正しく設定されていません。');
-            }
-            
-            // FormSubmitに送信（FormDataを使用）
+            // FormSubmitのAJAXエンドポイントを使用
+            // この方法ならGitHub Pagesでも確実に動作します
             const formDataToSend = new FormData();
             formDataToSend.append('name', name);
             formDataToSend.append('email', email);
@@ -75,18 +69,24 @@ function initializeContactForm() {
             formDataToSend.append('_subject', `ポートフォリオサイトからのお問い合わせ: ${name}様`);
             formDataToSend.append('_captcha', 'false');
             formDataToSend.append('_template', 'box');
-            formDataToSend.append('_next', window.location.href); // 送信後のリダイレクト先
+            formDataToSend.append('_next', window.location.href);
             
-            const response = await fetch(formAction, {
+            // FormSubmitのAJAXエンドポイントを使用
+            const response = await fetch('https://formsubmit.co/ajax/ryumushi@icloud.com', {
                 method: 'POST',
-                body: formDataToSend
+                body: formDataToSend,
+                headers: {
+                    'Accept': 'application/json'
+                }
             });
             
-            if (response.ok) {
+            const result = await response.json();
+            
+            if (response.ok && result.success) {
                 showNotification('お問い合わせを送信しました。ありがとうございます！', 'success');
                 contactForm.reset();
             } else {
-                throw new Error('送信に失敗しました。');
+                throw new Error(result.message || '送信に失敗しました。');
             }
             
         } catch (error) {
