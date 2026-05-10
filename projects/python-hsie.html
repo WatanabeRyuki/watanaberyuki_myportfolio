@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Python HSIEハラスメント検知システム実装の詳細ページ。自然言語処理と対話システムの実装について">
-    <title>Python HSIEハラスメント検知システム - 渡邊竜麒</title>
+    <title>Python 言語の攻撃性と会話の構造性の統合による HSIEハラスメント検知システム - 渡邊竜麒</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -164,12 +164,16 @@
             </a>
             
             <div class="project-header">
-                <h1 class="project-title">Python HSIE<br>（Harassment Structure Index Evidence）<br>ハラスメント検知システム</h1>
-                <p class="project-subtitle">音声・言語・行動構造を統合し、ハラスメント構造を数値化し、法的リスクまで提示できるマルチモーダルAI</p>
+                <h1 class="project-title">Python HSIE<br>（Harassment Structure Index Evidence）<br>言語の攻撃性と会話の構造性の統合による<br>世界初のハラスメント検知システム</h1>
+                <p class="project-subtitle">言語攻撃性・会話構造性を統合し、ハラスメント構造を数値化し、法的リスクまで提示できるマルチモーダルAI</p>
                 <div class="project-meta">
                     <div class="meta-item">
                         <i class="fab fa-python"></i>
                         <span>Python</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
                     </div>
                     <div class="meta-item">
                         <i class="fas fa-brain"></i>
@@ -185,10 +189,15 @@
             <div class="project-content">
                 <div class="project-description">
                     <h3>プロジェクト概要</h3>
-                    <p>HSIEは、音声・言語・会話構造という複数の観点から人間のコミュニケーション行動を分析し、ハラスメント行動を数値化・可視化するAI研究プロジェクトです。
-                        音声の抑揚や声量といった非言語情報、発話内容、会話の支配構造を統合して「ハラスメント構造指数（HSI）」を算出し、さらに判例データと照合することで法的リスクや証拠価値まで提示します。
+                    <p>HSIEは、言語攻撃性・会話構造性という2つの観点から人間のコミュニケーション行動を分析し、ハラスメント行動を数値化・可視化するマルチモーダルAI研究プロジェクトです。
+                        発話内容の攻撃性、会話の支配構造を統合して「ハラスメント構造指数（HSI）」を算出し、さらに判例データと照合することで法的リスクや証拠価値まで提示します。
                         
-                        従来のテキストベース判定では捉えきれなかった、日本語特有の婉曲的表現や沈黙・話し方の圧といった要素を対象とし、被害者の「証拠がない」という課題と、加害者の「無自覚な再発」という構造的問題の両面にアプローチすることを目的としています。</p>
+                        従来のテキストベース判定では捉えきれなかった、日本語特有の婉曲的表現や沈黙・話し方の圧といった要素を対象とし、被害者の「証拠がない」という課題と、加害者の「無自覚な再発」という構造的問題の両面にアプローチすることを目的としています。<br>
+
+                        現在はPythonを用いてこのシステムのAPI化したエンジンが完成し、Reactを用いてエンジンを統合したwebアプリをローカル上で動作する形で作成が完了しました。インフラやマネタイズモデルが完了次第リリース可能です。
+                        このエンジンではBERTを用いた独自の学習手法を使用し、7指標による言語の攻撃性の分析を可能にし、一から構築した会話構造の支配性を可視化するロジックを用いることで従来検知することができなかった婉曲的侮辱や一見攻撃性のない発言に見える無自覚な圧による高精度なハラスメントの検知を可能になりました。
+                        作成した独自の検知手法を提案する論文とこのシステムにより社会に貢献することを目標に6月に控える学会の準備を進めています。
+                    </p>
                     
                     <h3>開発の背景</h3>
                     <h3>①社会的背景</h3>
@@ -205,47 +214,43 @@
                     <h3>②技術的課題背景</h3>
                     <p>既存のハラスメント検知システムは主にテキスト分析に依存しており、<br>
 
-                        ・声の強さ・抑揚・沈黙<br>
+                        ・沈黙による圧力<br>
                         
                         ・発話の遮断や一方的な会話支配<br>
                         
                         ・日本語特有の遠回しな人格否定<br>
                         
-                        といった 「音声・行動に宿る圧力」 を十分に扱えていません。
+                        といった 「言語の攻撃性・会話の構造性に宿る圧力」 を十分に扱えていません。
                         
                         そこで私は、
-                        「ハラスメントを感情や単語ではなく、行動の構造として捉え直す」
+                        「ハラスメントを感情や単語ではなく、全体構造として捉え直す」
                         という視点から本プロジェクトを立ち上げました。</p>
 
                     <h3>技術的な挑戦</h3>
                     <h3>①マルチモーダル統合設計</h3>
-                    <p> HSIEでは以下の3つのモデルを独立して設計し、最終的に統合しています。<br>
-                        </p>
-                        <p>
-                        音声攻撃性モデル（A）<br>
-                        音量、ピッチ変動、緊張度などから話し方の圧を定量化<br>
+                    <p> HSIEでは以下の2つのモデルを独立して設計し、最終的に統合しています。<br>
                         </p>
                         <p>
                         会話構造モデル（S）<br>
-                        発話占有率、割り込み、否定連鎖などから支配構造を分析<br>
+                        発話占有率、割り込み、否定連鎖などから支配構造を完全独自モデルを構築して分析<br>
                         言語攻撃性モデル（L）<br>
-                        日本語特有の婉曲的侮辱や命令表現をNLPで解析<br>
+                        日本語特有の婉曲的侮辱や命令表現などを独自学習モデルのBERTで7指標による解析<br>
                         </p>
                         <p>
                         これらを単純に足し合わせるのではなく、
-                        過大評価を防ぐための重み付け・非線形統合によって
+                        過大評価を防ぐための重み付け・非線形統合（シグモイド）・分類ロジックによって
                         HSI（0〜100）という行動構造指数を設計しました。</p>
 
-                    <h3>②法律NLPとの接続（HSIE）</h3>
-                    <p>算出されたHSIを入力として、<br>
+                    <h3>②法令検索APIとの接続（HSIE）</h3>
+                    <p>算出されたHSIによるエビデンス入力として、<br>
 
-                        ・判例文書のembedding化<br>
+                        ・該当項目をクエリとしe-Govによる検索<br>
                         
-                        ・類似度によるTop-K判例抽出<br>
+                        ・類似度による法令抽出<br>
                         
-                        ・証拠の連続性・信頼性を考慮したEvidence Score算出<br>
+                        ・証拠の信頼性を考慮したタグ付けを行ったEvidenceの算出<br>
                         
-                        を行い、行動構造 × 法的観点を統合したHSIEとして最終出力します。
+                        を行い、構造 × 法的観点を統合したHSIEとして最終出力します。
                         
                         これは単なる分類AIではなく、
                         「AIがどのように判断したかを人が説明できる」ことを重視した設計です。</p>
@@ -255,7 +260,7 @@
 
                         ・マルチモーダルAIでは「統合ロジック」が最も難しく、最も価値が出ること<br>
                         
-                        ・精度指標（F1、相関係数、Cohen’s κなど）は
+                        ・精度指標は
                         タスクの性質から逆算して設計すべきであること<br>
 
                         ・社会課題は「感情」ではなく「構造」に分解することで技術に落とせる<br>
@@ -265,10 +270,17 @@
                         ・法律・心理・技術といった異分野を横断することで、初めて解ける問題がある<br>
                     </p>
                     <div class="project-image">
-                        <img src="../images/hsie.png" alt="Python AI チャットボットの開発画面。自然言語処理を使用した対話システムの実装例" class="project-screenshot">
+                        <div class="project-image project-image-row">
+                            <img src="../images/hsie_1.png" alt="HSIEエンジンホーム画面" class="project-screenshot2">
+                            <img src="../images/hsie_2.png" alt="HSIEエンジンボトムシート画面" class="project-screenshot2">
+                        </div>
                     </div>
-                    <div><a href="https://github.com/WatanabeRyuki/harassment_law_system_1.0">HSIE実装Githubサイトへ</a><br>
-                    <a href="https://watanaberyuki.github.io/harassment_law_chatbot_UI-UX_prototype/">デモフローサイトへ</a></div>
+                        <div>
+                            <div style="font-size:30px;">
+                                <a href="https://github.com/WatanabeRyuki/harassment_law_system_1.0">HSIEエンジンGithubサイトへ</a><br>
+                                <a href="https://youtube.com/shorts/PWbLjCe-QiU?si=DvVzUWu_wlLVTBC2">HSIE実行デモ動画へ</a><br>
+                            </div>
+                        </div>
                 </div>
                 
                 <div class="project-features">
@@ -281,31 +293,39 @@
                         <li>詳細設計書の作成</li>
                         <li>エントリーポイント層 詳細設計書の作成</li>
                         <li>エントリーポイント層のPython実装</li>
-                        <li>現在進行中・データ前処理層（音声・テキスト・メタ情報）の詳細設計</li>
+                        <li>データ前処理層（音声・テキスト・メタ情報）の詳細設計書</li>
+                        <li>データ前処理層（音声・テキスト・メタ情報）の実装</li>
+                        <li>言語攻撃性分析層の詳細設計書</li>
+                        <li>言語攻撃性分析層の実装</li>
+                        <li>会話構造分析層の詳細設計書</li>
+                        <li>会話構造分析層の実装</li>
+                        <li>HSI統合ロジック・スコアリング層の詳細設計書</li>
+                        <li>HSI統合ロジック・スコアリング層の実装</li>
+                        <li>HSI説明層の詳細設計書</li>
+                        <li>HSI説明層の実装</li>
+                        <li>法令取得層の詳細設計書</li>
+                        <li>法令取得層の実装</li>
+                        <li>HSIEエンジンの統合・API化実装</li>
 
                     <h3>主な機能</h3>
                     <ul class="feature-list">
                         <li>基音声入力の取得およびメタデータ管理（時刻・話者情報など）</li>
                         <li>音声認識（ASR）による音声 → テキスト変換</li>
                     </ul>
-                    <h3>・音声攻撃性分析</h3>
-                    <ul class="feature-list"></ul>
-                        <li>音量、ピッチ変動、緊張度などの音響特徴量抽出</li>
-                        <li>話し方の圧を数値化</li>
                     </ul>
-                    
                     <h3>・会話構造分析</h3>
                     <ul class="feature-list">
                         <li>発話占有率</li>
                         <li>割り込み検知</li>
                         <li>否定連鎖の分析</li>
+                        <li>特定条件下による占有率反転ロジック</li>
                     </ul>
                     
                     <h3>言語攻撃性分析</h3>
                     <ul class="feature-list">
-                        <li>侮辱・人格否定表現の検知</li>
-                        <li>命令・強制表現の分析</li>
-                        <li>日本語特有の婉曲表現への対応</li>
+                        <li>侮辱・婉曲的侮辱表現の検知</li>
+                        <li>強制命令・責任転嫁表現の検知</li>
+                        <li>人格否定・能力否定・価値観否定の検知</li>
                     </ul>
 
 
@@ -313,24 +333,26 @@
                     <ul class="feature-list">
                         <li>Python</li>
                         <li>FastAPI</li>
+                        <li>React</li>
+                        <li>cursor</li>
                         <li>Whisper base</li>
                         <li>librosa / torchaudio</li>
                         <li>日本語BERT系モデル</li>
-                        <li>Sentence-BERT（判例embedding）</li>
-                        <li>ルールベース × 機械学習のハイブリッド設計</li>
+                        <li>ルールベース × BERTのハイブリッド設計</li>
                         <li>マルチモーダルスコア統合アルゴリズム</li>
                         <li>要件定義・基本設計・詳細設計ベースの段階的開発</li>
                         <li>疎結合を前提としたレイヤード構成</li>
+                        <li>Auth0</li>
+                        <li>e-Gov</li>
                     </ul>
                     
                     <h3>今後の改善点</h3>
                     <ul class="feature-list">
-                        <li>データ前処理層の実装完了および最適化</li>
-                        <li>音声解析のリアルタイム性向上</li>
-                        <li>モデル評価の強化</li>
-                        <li>HSI統合ロジックの改良</li>
-                        <li>判例NLPの精度向上</li>
-                        <li>UI/UXの改善</li>
+                        <li>独自BERTモデルの学習データ追加</li>
+                        <li>法令抽出クエリの強化・top5化</li>
+                        <li>プラットフォーム化によるUX向上</li>
+                        <li>ASR精度の向上による評価指標の向上</li>
+                        <li>判例抽出ロジック・学習ロジックによるパーソナライズ向上</li>
                         <li>教育・予防用途への応用検討</li>
                     </ul>
                 </div>
