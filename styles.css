@@ -369,6 +369,32 @@ body {
     transform: scale(1.02);
 }
 
+/* 新しいクラス: 元のスタイルを踏襲しつつ高さを拡大 */
+.project-screenshot2 {
+    width: 100%;           /* コンテナの幅いっぱいに広げる */
+    height: 550px;         /* 高さを 180px から 400px に大幅拡大（お好みで調整） */
+    object-fit: cover;     /* 画像を歪ませずにリサイズ */
+    object-position: center;
+    border-radius: 12px;
+    border: 1px solid rgba(97, 218, 251, 0.2);
+    display: block;
+    margin: 2.5rem 0;      /* 上下にしっかり余白を確保 */
+    transition: transform 0.3s ease;
+}
+
+/* ホバー時の挙動も踏襲 */
+.project-screenshot2:hover {
+    transform: scale(1.02);
+}
+
+/* レスポンシブ対応（スマホ表示） */
+@media (max-width: 768px) {
+    .project-screenshot2 {
+        height: 250px;     /* スマホでは画面に収まりやすい高さに調整 */
+        margin: 1.5rem 0;
+    }
+}
+
 .project-link {
     display: inline-flex;
     align-items: center;
